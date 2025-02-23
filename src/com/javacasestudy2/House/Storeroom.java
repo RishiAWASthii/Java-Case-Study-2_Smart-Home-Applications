@@ -1,6 +1,6 @@
 package com.javacasestudy2.House;
 
-import com.javacasestudy2.CategoryOfDevices.KitchenDevices;
+import com.javacasestudy2.CategoryOfDevices.BedroomDevices;
 import com.javacasestudy2.CategoryOfDevices.StoreroomDevices;
 import com.javacasestudy2.Device.*;
 
@@ -38,56 +38,59 @@ public class Storeroom extends Rooms{
 
         switch (choice){
             case 1:
-                AirConditioner a = new AirConditioner(rand.nextInt(1000),"AirConditioner",false);
-                if (a instanceof StoreroomDevices){
-                    storeroomDevices.add(new AirConditioner(rand.nextInt(1000),"AirConditioner",false));
-                    return true;}
-                else {
-                    System.out.println("You cant add Air conditioner to the Storeroom");
-                    return false;}
+                AirConditioner a = new AirConditioner(rand.nextInt(1000), "AirConditioner", false);
+                if (a instanceof StoreroomDevices) {
+                    storeroomDevices.add(new AirConditioner(rand.nextInt(1000), "AirConditioner", false));
+                    return true;
+                } else {
+                    System.out.println("You cannot add Air Conditioner in Storeroom");
+                    return false;
+                }
             case 2:
-                Fan f = new Fan(rand.nextInt(1000),"Fan",false);
-                if (f instanceof StoreroomDevices){
-                    storeroomDevices.add(new Fan(rand.nextInt(1000),"Fan",false));
-                    return true;}
-                else {
-                    System.out.println("You cant add Fan to the Storeroom");
-                    return false;}
+                Fan f = new Fan(rand.nextInt(1000), "Fan", false);
+                if (f instanceof StoreroomDevices) {
+                    storeroomDevices.add(new Fan(rand.nextInt(1000), "Fan", false));
+                    return true;
+                } else {
+                    System.out.println("You cannot add Fan in Storeroom");
+                    return false;
+                }
             case 3:
-
-                Light l = new Light(rand.nextInt(1000),"Light",false);
-                if (l instanceof StoreroomDevices){
-                    storeroomDevices.add(new Light(rand.nextInt(1000),"Light",false));
-                    return true;}
-                else {
-                    System.out.println("You cant add Light to the Storeroom");
-                    return false;}
-
+                Light l = new Light(rand.nextInt(1000), "Light", false);
+                if (l instanceof StoreroomDevices) {
+                    storeroomDevices.add(new Light(rand.nextInt(1000), "Light", false));
+                    return true;
+                } else {
+                    System.out.println("You cannot add Light in Storeroom");
+                    return false;
+                }
             case 4:
-
-                Television t = new Television(rand.nextInt(1000),"Television",false);
-                if (t instanceof StoreroomDevices){
-                    storeroomDevices.add(new Television(rand.nextInt(1000),"Television",false));
-                    return true;}
-                else {
-                    System.out.println("You cant add Television to the Storeroom");
-                    return false;}
+                Television t = new Television(rand.nextInt(1000), "Television", false);
+                if (t instanceof StoreroomDevices) {
+                    storeroomDevices.add(new Television(rand.nextInt(1000), "Television", false));
+                    return true;
+                } else {
+                    System.out.println("You cannot add Television in Storeroom");
+                    return false;
+                }
             case 5:
-                Geyser g = new Geyser(rand.nextInt(1000),"Geyser",false);
-                if (g instanceof StoreroomDevices){
-                    storeroomDevices.add(new Geyser(rand.nextInt(1000),"Geyser",false));
-                    return true;}
-                else {
-                    System.out.println("You cant add Geyser to the Storeroom");
-                    return false;}
+                Geyser g = new Geyser(rand.nextInt(1000), "Geyser", false);
+                if (g instanceof StoreroomDevices) {
+                    storeroomDevices.add(new Geyser(rand.nextInt(1000), "Geyser", false));
+                    return true;
+                } else {
+                    System.out.println("You cannot add geyser in the Storeroom");
+                    return false;
+                }
             case 6:
-                ExhaustFan e = new ExhaustFan(rand.nextInt(1000),"Exhaust fan",false);
-                if (e instanceof StoreroomDevices){
-                    storeroomDevices.add(new ExhaustFan(rand.nextInt(1000),"Exhaust fan",false));
-                    return true;}
-                else {
-                    System.out.println("You cant add Exhaust fan to the Storeroom");
-                    return false;}
+                ExhaustFan e = new ExhaustFan(rand.nextInt(1000), "Exhaust Fan", false);
+                if (e instanceof StoreroomDevices) {
+                    storeroomDevices.add(new ExhaustFan(rand.nextInt(1000), "Exhaust Fan", false));
+                    return true;
+                } else {
+                    System.out.println("You cannot add ExhaustFan in the Storeroom");
+                    return false;
+                }
             default:
                 return false;
         }

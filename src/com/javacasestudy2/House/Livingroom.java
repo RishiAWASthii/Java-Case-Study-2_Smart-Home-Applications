@@ -1,6 +1,7 @@
 package com.javacasestudy2.House;
 
 import com.javacasestudy2.CategoryOfDevices.LivingroomDevices;
+import com.javacasestudy2.CategoryOfDevices.WashroomDevices;
 import com.javacasestudy2.Device.*;
 
 import java.util.ArrayList;
@@ -37,23 +38,60 @@ public class Livingroom extends Rooms{
 
         switch (choice){
             case 1:
-                livingRoomDevices.add(new AirConditioner(rand.nextInt(1000),"AirConditioner",false));
-                return true;
+                AirConditioner a = new AirConditioner(rand.nextInt(1000), "AirConditioner", false);
+                if (a instanceof LivingroomDevices) {
+                    livingRoomDevices.add(new AirConditioner(rand.nextInt(1000), "AirConditioner", false));
+                    return true;
+                }
+                else {
+                    System.out.println("You cannot add Air Conditioner in Living room");
+                    return false;
+                }
             case 2:
-                livingRoomDevices.add(new Fan(rand.nextInt(1000),"Fan",false));
-                return true;
+                Fan f = new Fan(rand.nextInt(1000), "Fan", false);
+                if (f instanceof LivingroomDevices) {
+                    livingRoomDevices.add(new Fan(rand.nextInt(1000), "Fan", false));
+                    return true;
+                } else {
+                    System.out.println("You cannot add Fan in Living room");
+                    return false;
+                }
             case 3:
-                livingRoomDevices.add(new Light(rand.nextInt(1000),"Light",false));
-                return true;
+                Light l = new Light(rand.nextInt(1000), "Light", false);
+                if (l instanceof LivingroomDevices) {
+                    livingRoomDevices.add(new Light(rand.nextInt(1000), "Light", false));
+                    return true;
+                } else {
+                    System.out.println("You cannot add Light in Living room");
+                    return false;
+                }
             case 4:
-                livingRoomDevices.add(new Television(rand.nextInt(1000),"Television",false));
-                return true;
+                Television t = new Television(rand.nextInt(1000),"Television",false);
+                if (t instanceof LivingroomDevices){
+                    livingRoomDevices.add(new AirConditioner(rand.nextInt(1000),"AirConditioner",false));
+                    return true;}
+                else {
+                    System.out.println("You cant add Air conditioner to the Living room");
+                    return false;
+                }
             case 5:
-                System.out.println("You cant add Geyser to the LivingRoom");
-                return false;
+                Geyser g = new Geyser(rand.nextInt(1000), "Geyser", false);
+                if (g instanceof LivingroomDevices) {
+                    livingRoomDevices.add(new Geyser(rand.nextInt(1000), "Geyser", false));
+                    return true;
+                } else {
+                    System.out.println("You cannot add geyser in the Living room");
+                    return false;
+                }
             case 6:
-                System.out.println("You cant add Exhaust to the LivingRoom");
-                return false;
+                ExhaustFan e = new ExhaustFan(rand.nextInt(1000), "Exhaust Fan", false);
+                if (e instanceof LivingroomDevices) {
+                    livingRoomDevices.add(new ExhaustFan(rand.nextInt(1000), "Exhaust Fan", false));
+                    return true;
+                } else {
+                    System.out.println("You cannot add ExhaustFan in the Living room");
+                    return false;
+                }
             default:
                 return false;
         }

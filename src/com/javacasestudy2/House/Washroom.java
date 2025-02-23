@@ -37,23 +37,59 @@ public class Washroom extends Rooms {
 
         switch (choice) {
             case 1:
-                System.out.println("You cant add AirConditioner to the Washroom");
-                return false;
+                AirConditioner a = new AirConditioner(rand.nextInt(1000), "AirConditioner", false);
+                if (a instanceof WashroomDevices) {
+                    washRoomDevices.add(new AirConditioner(rand.nextInt(1000), "AirConditioner", false));
+                    return true;
+                } else {
+                    System.out.println("You cannot add Air Conditioner in Washroom");
+                    return false;
+                }
             case 2:
-                System.out.println("You cant add Fan to the Washroom");
-                return false;
+                Fan f = new Fan(rand.nextInt(1000), "Fan", false);
+                if (f instanceof WashroomDevices) {
+                    washRoomDevices.add(new Fan(rand.nextInt(1000), "Fan", false));
+                    return true;
+                } else {
+                    System.out.println("You cannot add Fan in Washroom");
+                    return false;
+                }
             case 3:
-                washRoomDevices.add(new Light(rand.nextInt(1000), "Light", false));
-                return true;
+                Light l = new Light(rand.nextInt(1000), "Light", false);
+                if (l instanceof WashroomDevices) {
+                    washRoomDevices.add(new Light(rand.nextInt(1000), "Light", false));
+                    return true;
+                } else {
+                    System.out.println("You cannot add Light in Washroom");
+                    return false;
+                }
             case 4:
-                System.out.println("You cant add Television to the Washroom");
-                return false;
+                Television t = new Television(rand.nextInt(1000),"Television",false);
+                if (t instanceof WashroomDevices){
+                    washRoomDevices.add(new AirConditioner(rand.nextInt(1000),"AirConditioner",false));
+                    return true;}
+                else {
+                    System.out.println("You cant add Air conditioner to the Washroom");
+                    return false;
+                }
             case 5:
-                washRoomDevices.add(new Geyser(rand.nextInt(1000), "Geyser", false));
-                return true;
+                Geyser g = new Geyser(rand.nextInt(1000), "Geyser", false);
+                if (g instanceof WashroomDevices) {
+                    washRoomDevices.add(new Geyser(rand.nextInt(1000), "Geyser", false));
+                    return true;
+                } else {
+                    System.out.println("You cannot add geyser in the Washroom");
+                    return false;
+                }
             case 6:
-                washRoomDevices.add(new ExhaustFan(rand.nextInt(1000), "ExhaustFan", false));
-                return true;
+                ExhaustFan e = new ExhaustFan(rand.nextInt(1000), "Exhaust Fan", false);
+                if (e instanceof WashroomDevices) {
+                    washRoomDevices.add(new ExhaustFan(rand.nextInt(1000), "Exhaust Fan", false));
+                    return true;
+                } else {
+                    System.out.println("You cannot add ExhaustFan in the Washroom");
+                    return false;
+                }
             default:
                 return false;
         }

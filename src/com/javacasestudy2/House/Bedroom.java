@@ -2,10 +2,12 @@ package com.javacasestudy2.House;
 
 import com.javacasestudy2.CategoryOfDevices.BedroomDevices;
 import com.javacasestudy2.Device.*;
+import com.javacasestudy2.Exceptions.DeviceMismatch;
 
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.zip.DataFormatException;
 
 public class Bedroom extends Rooms {
     Scanner sc = new Scanner(System.in);
@@ -40,22 +42,59 @@ public class Bedroom extends Rooms {
 
         switch (choice) {
             case 1:
-                bedRoomDevices.add(new AirConditioner(rand.nextInt(1000), "AirConditioner", false));
-                return true;
+                AirConditioner a = new AirConditioner(rand.nextInt(1000), "AirConditioner", false);
+                if (a instanceof BedroomDevices) {
+                    bedRoomDevices.add(new AirConditioner(rand.nextInt(1000), "AirConditioner", false));
+                    return true;
+                } else {
+                    System.out.println("You cannot add Air Conditioner in Bedroom");
+                    return false;
+                }
             case 2:
-                bedRoomDevices.add(new Fan(rand.nextInt(1000), "Fan", false));
-                return true;
+                Fan f = new Fan(rand.nextInt(1000), "Fan", false);
+                if (f instanceof BedroomDevices) {
+                    bedRoomDevices.add(new Fan(rand.nextInt(1000), "Fan", false));
+                    return true;
+                } else {
+                    System.out.println("You cannot add Fan in Bedroom");
+                    return false;
+                }
             case 3:
-                bedRoomDevices.add(new Light(rand.nextInt(1000), "Light", false));
-                return true;
+                Light l = new Light(rand.nextInt(1000), "Light", false);
+                if (l instanceof BedroomDevices) {
+                    bedRoomDevices.add(new Light(rand.nextInt(1000), "Light", false));
+                    return true;
+                } else {
+                    System.out.println("You cannot add Light in Bedroom");
+                    return false;
+                }
             case 4:
-                bedRoomDevices.add(new Television(rand.nextInt(1000), "Television", false));
-                return true;
+                Television t = new Television(rand.nextInt(1000), "Television", false);
+                if (t instanceof BedroomDevices) {
+                    bedRoomDevices.add(new Television(rand.nextInt(1000), "Television", false));
+                    return true;
+                } else {
+                    System.out.println("You cannot add Television in Bedroom");
+                    return false;
+                }
             case 5:
-                System.out.println("You cannot add geyser in the Bedroom");
-                return false;
+                Geyser g = new Geyser(rand.nextInt(1000), "Geyser", false);
+                if (g instanceof BedroomDevices) {
+                    bedRoomDevices.add(new Geyser(rand.nextInt(1000), "Geyser", false));
+                    return true;
+                } else {
+                    System.out.println("You cannot add geyser in the Bedroom");
+                    return false;
+                }
             case 6:
-                System.out.println("You cannot add ExhaustFan in the Bedroom");
+                ExhaustFan e = new ExhaustFan(rand.nextInt(1000), "Exhaust Fan", false);
+                if (e instanceof BedroomDevices) {
+                    bedRoomDevices.add(new ExhaustFan(rand.nextInt(1000), "Exhaust Fan", false));
+                    return true;
+                } else {
+                    System.out.println("You cannot add ExhaustFan in the Bedroom");
+                    return false;
+                }
             default:
                 return false;
         }
@@ -168,11 +207,11 @@ public class Bedroom extends Rooms {
             System.out.println("There is no device present in the room");
         else {
             ArrayList<Device> televisionIndex = new ArrayList<Device>();
-            for (int i = 0,j=1; i < bedRoomDevices.size(); i++) {
+            for (int i = 0, j = 1; i < bedRoomDevices.size(); i++) {
                 if (bedRoomDevices.get(i) instanceof Television) {
                     televisionIndex.add(bedRoomDevices.get(i));
                     System.out.println("+-------------------------------------------------------------------------+");
-                    System.out.println("[ " + (j) + ". Device Name -" + bedRoomDevices.get(i).getDeviceName() +"     ProductId - "+ bedRoomDevices.get(i).getProductId()+"      press-" + (j) + "]");
+                    System.out.println("[ " + (j) + ". Device Name -" + bedRoomDevices.get(i).getDeviceName() + "     ProductId - " + bedRoomDevices.get(i).getProductId() + "      press-" + (j) + "]");
                     j++;
                 }
             }
@@ -180,8 +219,8 @@ public class Bedroom extends Rooms {
             System.out.println("Chose device");
             int vchoice = sc.nextInt();
 
-            if (((Television) televisionIndex.get(vchoice-1)).increaseVolume())
-                System.out.println("Volume increase successfully, of product "+televisionIndex.get(vchoice-1).getProductId());
+            if (((Television) televisionIndex.get(vchoice - 1)).increaseVolume())
+                System.out.println("Volume increase successfully, of product " + televisionIndex.get(vchoice - 1).getProductId());
 
         }
     }
@@ -191,11 +230,11 @@ public class Bedroom extends Rooms {
             System.out.println("There is no device present in the room");
         else {
             ArrayList<Device> televisionIndex = new ArrayList<Device>();
-            for (int i = 0,j=1; i < bedRoomDevices.size(); i++) {
+            for (int i = 0, j = 1; i < bedRoomDevices.size(); i++) {
                 if (bedRoomDevices.get(i) instanceof Television) {
                     televisionIndex.add(bedRoomDevices.get(i));
                     System.out.println("+-------------------------------------------------------------------------+");
-                    System.out.println("[ " + (j) + ". Device Name -" + bedRoomDevices.get(i).getDeviceName() +"     ProductId - "+ bedRoomDevices.get(i).getProductId()+"      press-" + (j) + "]");
+                    System.out.println("[ " + (j) + ". Device Name -" + bedRoomDevices.get(i).getDeviceName() + "     ProductId - " + bedRoomDevices.get(i).getProductId() + "      press-" + (j) + "]");
                     j++;
                 }
             }
@@ -203,8 +242,8 @@ public class Bedroom extends Rooms {
             System.out.println("Chose device");
             int vchoice = sc.nextInt();
 
-            if (((Television) televisionIndex.get(vchoice-1)).decreaseVolume())
-                System.out.println("Volume decrease successfully, of product "+televisionIndex.get(vchoice-1).getProductId());
+            if (((Television) televisionIndex.get(vchoice - 1)).decreaseVolume())
+                System.out.println("Volume decrease successfully, of product " + televisionIndex.get(vchoice - 1).getProductId());
         }
     }
 
@@ -213,11 +252,11 @@ public class Bedroom extends Rooms {
             System.out.println("There is no device present in the room");
         else {
             ArrayList<Device> televisionIndex = new ArrayList<Device>();
-            for (int i = 0,j=1; i < bedRoomDevices.size(); i++) {
+            for (int i = 0, j = 1; i < bedRoomDevices.size(); i++) {
                 if (bedRoomDevices.get(i) instanceof Television) {
                     televisionIndex.add(bedRoomDevices.get(i));
                     System.out.println("+-------------------------------------------------------------------------+");
-                    System.out.println("[ " + (j) + ". Device Name -" + bedRoomDevices.get(i).getDeviceName() +"     ProductId - "+ bedRoomDevices.get(i).getProductId()+"      press-" + (j) + "]");
+                    System.out.println("[ " + (j) + ". Device Name -" + bedRoomDevices.get(i).getDeviceName() + "     ProductId - " + bedRoomDevices.get(i).getProductId() + "      press-" + (j) + "]");
                     j++;
                 }
             }
@@ -226,8 +265,8 @@ public class Bedroom extends Rooms {
             System.out.println("Chose device");
             int vchoice = sc.nextInt();
 
-            if (((Television) televisionIndex.get(vchoice-1)).channelChange())
-                System.out.println("Channel change successfully, of product "+televisionIndex.get(vchoice-1).getProductId());
+            if (((Television) televisionIndex.get(vchoice - 1)).channelChange())
+                System.out.println("Channel change successfully, of product " + televisionIndex.get(vchoice - 1).getProductId());
         }
     }
 

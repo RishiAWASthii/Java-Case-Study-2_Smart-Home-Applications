@@ -12,7 +12,7 @@ public class Main {
 
         do {
             System.out.println("+-----------------------------------------------------+");
-            System.out.println("        Welcome to Smart Home Application");
+            System.out.println("         Welcome to Smart Home Application");
             System.out.println("+-----------------------------------------------------+");
             System.out.println("1. Install Device in the Room              press-1");
             System.out.println("2. Uninstall Device from the Room          press-2");

@@ -1,6 +1,6 @@
 package com.javacasestudy2.Exceptions;
 
-public class DeviceMismatch {
+public class DeviceMismatch extends Exception{
 
     public void displayMsg()
     {
