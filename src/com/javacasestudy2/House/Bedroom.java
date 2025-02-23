@@ -231,6 +231,70 @@ public class Bedroom extends Rooms {
         }
     }
 
+    public void increaseTemp() {
+        if (bedRoomDevices.isEmpty())
+            System.out.println("There is no device present in the room");
+        else {
+            ArrayList<Device> airconditionerIndex = new ArrayList<Device>();
+            for (int i = 0, j = 1; i < bedRoomDevices.size(); i++) {
+                if (bedRoomDevices.get(i) instanceof AirConditioner) {
+                    airconditionerIndex.add(bedRoomDevices.get(i));
+                    System.out.println("+-------------------------------------------------------------------------+");
+                    System.out.println("[ " + (j) + ". Device Name -" + bedRoomDevices.get(i).getDeviceName() + "     ProductId - " + bedRoomDevices.get(i).getProductId() + "      press-" + (j) + "]");
+                    j++;
+                }
+            }
+            System.out.println("+-------------------------------------------------------------------------+");
+            System.out.println("Chose device");
+            int vchoice = sc.nextInt();
 
+            if (((AirConditioner) airconditionerIndex.get(vchoice - 1)).increaseTemp())
+                System.out.println("Increase temperature successfully, of product " + airconditionerIndex.get(vchoice - 1).getProductId());
+        }
+    }
+
+    public void decreaseTemp() {
+        if (bedRoomDevices.isEmpty())
+            System.out.println("There is no device present in the room");
+        else {
+            ArrayList<Device> airconditionerIndex = new ArrayList<Device>();
+            for (int i = 0, j = 1; i < bedRoomDevices.size(); i++) {
+                if (bedRoomDevices.get(i) instanceof AirConditioner) {
+                    airconditionerIndex.add(bedRoomDevices.get(i));
+                    System.out.println("+-------------------------------------------------------------------------+");
+                    System.out.println("[ " + (j) + ". Device Name -" + bedRoomDevices.get(i).getDeviceName() + "     ProductId - " + bedRoomDevices.get(i).getProductId() + "      press-" + (j) + "]");
+                    j++;
+                }
+            }
+            System.out.println("+-------------------------------------------------------------------------+");
+            System.out.println("Chose device");
+            int vchoice = sc.nextInt();
+
+            if (((AirConditioner) airconditionerIndex.get(vchoice - 1)).decreaseTemp())
+                System.out.println("Temperature decrease successfully, of product " + airconditionerIndex.get(vchoice - 1).getProductId());
+        }
+    }
+
+    public void changeMode() {
+        if (bedRoomDevices.isEmpty())
+            System.out.println("There is no device present in the room");
+        else {
+            ArrayList<Device> airconditionerIndex = new ArrayList<Device>();
+            for (int i = 0, j = 1; i < bedRoomDevices.size(); i++) {
+                if (bedRoomDevices.get(i) instanceof AirConditioner) {
+                    airconditionerIndex.add(bedRoomDevices.get(i));
+                    System.out.println("+-------------------------------------------------------------------------+");
+                    System.out.println("[ " + (j) + ". Device Name -" + bedRoomDevices.get(i).getDeviceName() + "     ProductId - " + bedRoomDevices.get(i).getProductId() + "      press-" + (j) + "]");
+                    j++;
+                }
+            }
+            System.out.println("+-------------------------------------------------------------------------+");
+            System.out.println("Chose device");
+            int vchoice = sc.nextInt();
+
+            if (((AirConditioner) airconditionerIndex.get(vchoice - 1)).changeMode())
+                System.out.println("Change mode successfully, of product " + airconditionerIndex.get(vchoice - 1).getProductId());
+        }
+    }
 }
 

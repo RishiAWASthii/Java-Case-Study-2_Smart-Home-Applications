@@ -266,7 +266,7 @@ public class Main {
                                 System.out.println("Please enter preferred choice");
                                 int echoice = sc.nextInt();
 
-                                switch (echoice){
+                                switch (echoice) {
                                     case 1:
                                         do {
                                             System.out.println("Select Room in which you want to Increase volume of Devices");
@@ -363,7 +363,7 @@ public class Main {
                                 System.out.println("Please enter preferred choice");
                                 int tchoice = sc.nextInt();
 
-                                switch (tchoice){
+                                switch (tchoice) {
                                     case 1:
                                         do {
                                             System.out.println("Select Room in which you want to Increase temperature of Devices");
@@ -378,10 +378,10 @@ public class Main {
 
                                             switch (roomChoice) {
                                                 case 1:
-                                                    house.increaseVolume("Living room");
+                                                    house.increaseTemp("Living room");
                                                     break;
                                                 case 2:
-                                                    house.increaseVolume("Bedroom");
+                                                    house.increaseTemp("Bedroom");
                                                     break;
                                                 case 3:
                                                     break;
@@ -390,6 +390,62 @@ public class Main {
                                                     break;
                                             }
                                         } while (roomChoice != 3);
+                                        break;
+                                    case 2:
+                                        do {
+                                            System.out.println("Select Room in which you want to Decrease temperature of Devices");
+                                            System.out.println("+------------------------------------------------------+");
+                                            System.out.println("1. Living room                            press-1");
+                                            System.out.println("2. Bedroom                                press-2");
+                                            System.out.println("3. Go to Entertainment  devices control   press-3");
+                                            System.out.println("+------------------------------------------------------+");
+                                            System.out.println("Please enter preferred choice");
+
+                                            roomChoice = sc.nextInt();
+
+                                            switch (roomChoice) {
+                                                case 1:
+                                                    house.decreaseTemp("Living room");
+                                                    break;
+                                                case 2:
+                                                    house.decreaseTemp("Bedroom");
+                                                    break;
+                                                case 3:
+                                                    break;
+                                                default:
+                                                    System.out.println("Invalid choice! Please enter correct choice");
+                                                    break;
+                                            }
+                                        } while (roomChoice != 3);
+                                        break;
+                                    case 3:
+                                        do {
+                                            System.out.println("Select Room in which you want to Change mode of Devices");
+                                            System.out.println("+------------------------------------------------------+");
+                                            System.out.println("1. Living room                            press-1");
+                                            System.out.println("2. Bedroom                                press-2");
+                                            System.out.println("3. Go to Entertainment  devices control   press-3");
+                                            System.out.println("+------------------------------------------------------+");
+                                            System.out.println("Please enter preferred choice");
+
+                                            roomChoice = sc.nextInt();
+
+                                            switch (roomChoice) {
+                                                case 1:
+                                                    house.changeMode("Living room");
+                                                    break;
+                                                case 2:
+                                                    house.changeMode("Bedroom");
+                                                    break;
+                                                case 3:
+                                                    break;
+                                                default:
+                                                    System.out.println("Invalid choice! Please enter correct choice");
+                                                    break;
+                                            }
+                                        } while (roomChoice != 3);
+                                        break;
+                                    case 4:
                                         break;
                                 }
 

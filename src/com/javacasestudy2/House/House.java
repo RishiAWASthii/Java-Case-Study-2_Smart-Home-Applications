@@ -165,5 +165,66 @@ public class House {
             System.out.println("Room not found");
     }
 
+    public void increaseTemp(String RoomName)
+    {
+        boolean status = false;
+        for (int i = 0; i < rooms.size(); i++) {
+            if (RoomName.equals(rooms.get(i).roomName)) {
+                status = true;
+                if(rooms.get(i) instanceof Bedroom) {
+                    Bedroom b = (Bedroom) rooms.get(i);
+                    b.increaseTemp();
+                }
+                else
+                {
+                    Livingroom l = (Livingroom) rooms.get(i);
+                    l.increaseTemp();
+                }
+            }
+        }
+        if (!status)
+            System.out.println("Room not found");
+    }
 
+    public void decreaseTemp(String RoomName)
+    {
+        boolean status = false;
+        for (int i = 0; i < rooms.size(); i++) {
+            if (RoomName.equals(rooms.get(i).roomName)) {
+                status = true;
+                if(rooms.get(i) instanceof Bedroom) {
+                    Bedroom b = (Bedroom) rooms.get(i);
+                    b.decreaseTemp();
+                }
+                else
+                {
+                    Livingroom l = (Livingroom) rooms.get(i);
+                    l.decreaseTemp();
+                }
+            }
+        }
+        if (!status)
+            System.out.println("Room not found");
+    }
+
+    public void changeMode(String RoomName)
+    {
+        boolean status = false;
+        for (int i = 0; i < rooms.size(); i++) {
+            if (RoomName.equals(rooms.get(i).roomName)) {
+                status = true;
+                if(rooms.get(i) instanceof Bedroom) {
+                    Bedroom b = (Bedroom) rooms.get(i);
+                    b.changeMode();
+                }
+                else
+                {
+                    Livingroom l = (Livingroom) rooms.get(i);
+                    l.changeMode();
+                }
+            }
+        }
+        if (!status)
+            System.out.println("Room not found");
+    }
 }

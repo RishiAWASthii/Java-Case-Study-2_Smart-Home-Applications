@@ -2,10 +2,7 @@ package com.javacasestudy2.House;
 
 import com.javacasestudy2.CategoryOfDevices.BedroomDevices;
 import com.javacasestudy2.CategoryOfDevices.KitchenDevices;
-import com.javacasestudy2.Device.Device;
-import com.javacasestudy2.Device.ExhaustFan;
-import com.javacasestudy2.Device.Fan;
-import com.javacasestudy2.Device.Light;
+import com.javacasestudy2.Device.*;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -41,23 +38,53 @@ public class Kitchen extends Rooms{
 
         switch (choice){
             case 1:
+                AirConditioner a = new AirConditioner(rand.nextInt(1000),"AirConditioner",false);
+                if (a instanceof KitchenDevices){
+                    kitchenDevices.add(new AirConditioner(rand.nextInt(1000),"AirConditioner",false));
+                return true;}
+                else {
                 System.out.println("You cant add Air conditioner to the kitchen");
-                return false;
+                return false;}
             case 2:
-                kitchenDevices.add(new Fan(rand.nextInt(1000),"Fan",false));
-                return true;
+                Fan f = new Fan(rand.nextInt(1000),"Fan",false);
+                if (f instanceof KitchenDevices){
+                    kitchenDevices.add(new Fan(rand.nextInt(1000),"Fan",false));
+                    return true;}
+                else {
+                    System.out.println("You cant add Fan to the kitchen");
+                    return false;}
             case 3:
-                kitchenDevices.add(new Light(rand.nextInt(1000),"Light",false));
-                return true;
+                Light l = new Light(rand.nextInt(1000),"Light",false);
+                if (l instanceof KitchenDevices){
+                    kitchenDevices.add(new Light(rand.nextInt(1000),"Light",false));
+                    return true;}
+                else {
+                    System.out.println("You cant add Light to the kitchen");
+                    return false;}
             case 4:
-                System.out.println("You cant add Television to the kitchen");
-                return false;
+                Television t = new Television(rand.nextInt(1000),"Television",false);
+                if (t instanceof KitchenDevices){
+                    kitchenDevices.add(new Television(rand.nextInt(1000),"Television",false));
+                    return true;}
+                else {
+                    System.out.println("You cant add Television to the kitchen");
+                    return false;}
             case 5:
-                System.out.println("You cant add Geyser to the kitchen");
-                return false;
+                Geyser g = new Geyser(rand.nextInt(1000),"Geyser",false);
+                if (g instanceof KitchenDevices){
+                    kitchenDevices.add(new Geyser(rand.nextInt(1000),"Geyser",false));
+                    return true;}
+                else {
+                    System.out.println("You cant add Geyser to the kitchen");
+                    return false;}
             case 6:
-                kitchenDevices.add(new ExhaustFan(rand.nextInt(1000),"Exhaust Fan",false));
-                return true;
+                ExhaustFan e = new ExhaustFan(rand.nextInt(1000),"Exhaust fan",false);
+                if (e instanceof KitchenDevices){
+                    kitchenDevices.add(new ExhaustFan(rand.nextInt(1000),"Exhaust fan",false));
+                    return true;}
+                else {
+                    System.out.println("You cant add Exhaust fan to the kitchen");
+                    return false;}
             default:
                 return false;
         }

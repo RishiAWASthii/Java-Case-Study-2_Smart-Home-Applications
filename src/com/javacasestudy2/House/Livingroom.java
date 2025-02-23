@@ -235,4 +235,70 @@ public class Livingroom extends Rooms{
                 System.out.println("Channel change successfully, of product "+televisionIndex.get(vchoice-1).getProductId());
         }
     }
+
+    public void increaseTemp() {
+        if (livingRoomDevices.isEmpty())
+            System.out.println("There is no device present in the room");
+        else {
+            ArrayList<Device> airconditionerIndex = new ArrayList<Device>();
+            for (int i = 0, j = 1; i < livingRoomDevices.size(); i++) {
+                if (livingRoomDevices.get(i) instanceof AirConditioner) {
+                    airconditionerIndex.add(livingRoomDevices.get(i));
+                    System.out.println("+-------------------------------------------------------------------------+");
+                    System.out.println("[ " + (j) + ". Device Name -" + livingRoomDevices.get(i).getDeviceName() + "     ProductId - " + livingRoomDevices.get(i).getProductId() + "      press-" + (j) + "]");
+                    j++;
+                }
+            }
+            System.out.println("+-------------------------------------------------------------------------+");
+            System.out.println("Chose device");
+            int vchoice = sc.nextInt();
+
+            if (((AirConditioner) airconditionerIndex.get(vchoice - 1)).increaseTemp())
+                System.out.println("Increase temperature successfully, of product " + airconditionerIndex.get(vchoice - 1).getProductId());
+        }
+    }
+
+    public void decreaseTemp() {
+        if (livingRoomDevices.isEmpty())
+            System.out.println("There is no device present in the room");
+        else {
+            ArrayList<Device> airconditionerIndex = new ArrayList<Device>();
+            for (int i = 0, j = 1; i < livingRoomDevices.size(); i++) {
+                if (livingRoomDevices.get(i) instanceof AirConditioner) {
+                    airconditionerIndex.add(livingRoomDevices.get(i));
+                    System.out.println("+-------------------------------------------------------------------------+");
+                    System.out.println("[ " + (j) + ". Device Name -" + livingRoomDevices.get(i).getDeviceName() + "     ProductId - " + livingRoomDevices.get(i).getProductId() + "      press-" + (j) + "]");
+                    j++;
+                }
+            }
+            System.out.println("+-------------------------------------------------------------------------+");
+            System.out.println("Chose device");
+            int vchoice = sc.nextInt();
+
+            if (((AirConditioner) airconditionerIndex.get(vchoice - 1)).decreaseTemp())
+                System.out.println("Temperature decrease successfully, of product " + airconditionerIndex.get(vchoice - 1).getProductId());
+        }
+    }
+
+    public void changeMode() {
+        if (livingRoomDevices.isEmpty())
+            System.out.println("There is no device present in the room");
+        else {
+            ArrayList<Device> airconditionerIndex = new ArrayList<Device>();
+            for (int i = 0, j = 1; i < livingRoomDevices.size(); i++) {
+                if (livingRoomDevices.get(i) instanceof AirConditioner) {
+                    airconditionerIndex.add(livingRoomDevices.get(i));
+                    System.out.println("+-------------------------------------------------------------------------+");
+                    System.out.println("[ " + (j) + ". Device Name -" + livingRoomDevices.get(i).getDeviceName() + "     ProductId - " + livingRoomDevices.get(i).getProductId() + "      press-" + (j) + "]");
+                    j++;
+                }
+            }
+            System.out.println("+-------------------------------------------------------------------------+");
+            System.out.println("Chose device");
+            int vchoice = sc.nextInt();
+
+            if (((AirConditioner) airconditionerIndex.get(vchoice - 1)).changeMode())
+                System.out.println("Change mode successfully, of product " + airconditionerIndex.get(vchoice - 1).getProductId());
+        }
+    }
 }
