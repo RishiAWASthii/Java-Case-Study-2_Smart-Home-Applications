@@ -19,7 +19,9 @@ public class Main {
             System.out.println("3. Show number of Devices in the Room      press-3");
             System.out.println("4. Check status of Device in the Room      press-4");
             System.out.println("5. Device control                          press-5");
-            System.out.println("6. Exit application                        press-6");
+            System.out.println("6. Device state duration                   press-6");
+            System.out.println("7. Add Room                                press-7");
+            System.out.println("8. Exit application                        press-8");
             System.out.println("+-----------------------------------------------------+");
             System.out.println("Please enter preferred choice");
             choice = sc.nextInt();
@@ -350,6 +352,8 @@ public class Main {
                                         break;
                                     case 4:
                                         break;
+                                    case 5:
+                                        break;
                                 }
                                 break;
                             case 4:
@@ -453,12 +457,76 @@ public class Main {
                     } while (controlchoice != 5);
                     break;
                 case 6:
+                    do {
+                        //boolean ch = false;
+                        System.out.println("Select Room in which you want to calculate current state time of Devices");
+                        System.out.println("+-------------------------------+");
+                        System.out.println("1. Bedroom           press-1");
+                        System.out.println("2. Kitchen           press-2");
+                        System.out.println("3. Washroom          press-3");
+                        System.out.println("4. Living room       press-4");
+                        System.out.println("5. Store room        press-5");
+                        System.out.println("6. Go to Main menu   press-6");
+                        System.out.println("+-------------------------------+");
+                        System.out.println("Please enter preferred choice");
+
+                        roomChoice = sc.nextInt();
+
+                        switch (roomChoice) {
+                            case 1:
+                                house.calculateTime("Bedroom");
+                                break;
+                            case 2:
+                                house.calculateTime("Kitchen");
+                                break;
+                            case 3:
+                                house.calculateTime("Washroom");
+                                break;
+                            case 4:
+                                house.calculateTime("Living room");
+                                break;
+                            case 5:
+                                house.calculateTime("Store room");
+                                break;
+                            case 6:
+                                break;
+                            default:
+                                System.out.println("Invalid choice! Please enter correct choice");
+                                break;
+                        }
+                    } while (roomChoice != 6);
+                    break;
+                case 7:
+                    System.out.println("Which room you would like to add");
+                    System.out.println("+------------------------------------------------+");
+                    System.out.println("1. Dining room             press-1");
+                    System.out.println("2. Drawing room            press-2");
+                    System.out.println("3. Go to main menu         press-3");
+                    System.out.println("+------------------------------------------------+");
+                    System.out.println("Please enter preferred choice");
+                    int addChoice = sc.nextInt();
+
+                    switch (addChoice){
+                        case 1:
+                            house.addRoom("Dining room");
+                            break;
+                        case 2:
+                            house.addRoom("Drawing room");
+                            break;
+                        case 3:
+                            break;
+                        default:
+                            System.out.println("Invalid choice! Please enter correct choice");
+                            break;
+                    }
+                    break;
+                case 8:
                     System.out.println("Exit successfully, Thank you for using Smart Home Application");
                     break;
                 default:
                     System.out.println("Invalid choice! Please enter correct choice");
                     break;
             }
-        } while (choice != 6);
+        } while (choice !=8);
     }
 }

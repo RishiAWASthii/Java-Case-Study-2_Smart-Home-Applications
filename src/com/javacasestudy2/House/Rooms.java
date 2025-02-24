@@ -41,4 +41,6 @@ public abstract class Rooms {
     public abstract void deviceOn();
 
     public abstract void deviceOff();
+
+    public abstract void calculateTime();
 }

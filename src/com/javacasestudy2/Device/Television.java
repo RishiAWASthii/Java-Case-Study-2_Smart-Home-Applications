@@ -4,13 +4,15 @@ import com.javacasestudy2.CategoryOfDevices.BedroomDevices;
 import com.javacasestudy2.CategoryOfDevices.LivingroomDevices;
 import com.javacasestudy2.Interfaces.EntertainmentDevices;
 
+import java.time.LocalTime;
+
 public class Television extends Device implements BedroomDevices, LivingroomDevices, EntertainmentDevices {
 
     public Television() {
     }
 
-    public Television(int productId, String deviceName, boolean status) {
-        super(productId, deviceName, status);
+    public Television(int productId, String deviceName, boolean status, LocalTime startTime) {
+        super(productId, deviceName, status, startTime);
     }
 
     @Override

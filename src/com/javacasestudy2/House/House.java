@@ -227,4 +227,30 @@ public class House {
         if (!status)
             System.out.println("Room not found");
     }
+
+    public void calculateTime(String RoomName)
+    {
+        boolean status = false;
+        for (int i = 0; i < rooms.size(); i++) {
+            if (RoomName.equals(rooms.get(i).roomName)) {
+                status = true;
+                rooms.get(i).calculateTime();
+            }
+        }
+        if (!status)
+            System.out.println("Room not found");
+    }
+
+    public void addRoom(String RoomName)
+    {
+        if (RoomName.equals("Dining room")) {
+            rooms.add(new Diningroom("Dining room", 0));
+            System.out.println(" "+RoomName+" is added");
+        } else if (RoomName.equals("Drawing room")) {
+            rooms.add(new Drawingroom("Drawing room",0));
+            System.out.println(" "+RoomName+" is added");
+        }
+        else
+            System.out.println("");
+    }
 }

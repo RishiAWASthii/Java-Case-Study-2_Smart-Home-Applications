@@ -2,12 +2,14 @@ package com.javacasestudy2.Device;
 
 import com.javacasestudy2.CategoryOfDevices.*;
 
-public class Light extends Device implements BedroomDevices, KitchenDevices, LivingroomDevices, StoreroomDevices, WashroomDevices {
+import java.time.LocalTime;
+
+public class Light extends Device implements BedroomDevices, KitchenDevices, LivingroomDevices, StoreroomDevices, WashroomDevices, DiningroomDevices, DrawingroomDevices {
 
     public Light() {
     }
 
-    public Light(int productId, String deviceName, boolean status) {
-        super(productId, deviceName, status);
+    public Light(int productId, String deviceName, boolean status, LocalTime startTime) {
+        super(productId, deviceName, status, startTime);
     }
 }

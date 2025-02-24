@@ -4,6 +4,7 @@ import com.javacasestudy2.CategoryOfDevices.BedroomDevices;
 import com.javacasestudy2.Device.*;
 import com.javacasestudy2.Exceptions.DeviceMismatch;
 
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
@@ -17,12 +18,12 @@ public class Bedroom extends Rooms {
     public Bedroom() {
     }
 
-    //Parametrise Constructor
+    //Parameterized Constructor
     public Bedroom(String roomName, int noOfDevices) {
 
         super(roomName, noOfDevices);
         Random rand = new Random();
-        bedRoomDevices.add(new Light(rand.nextInt(1000), "Light", false));
+        bedRoomDevices.add(new Light(rand.nextInt(1000), "Light", false, LocalTime.now()));
     }
 
     @Override
@@ -42,54 +43,54 @@ public class Bedroom extends Rooms {
 
         switch (choice) {
             case 1:
-                AirConditioner a = new AirConditioner(rand.nextInt(1000), "AirConditioner", false);
+                AirConditioner a = new AirConditioner(rand.nextInt(1000), "AirConditioner", false, LocalTime.now());
                 if (a instanceof BedroomDevices) {
-                    bedRoomDevices.add(new AirConditioner(rand.nextInt(1000), "AirConditioner", false));
+                    bedRoomDevices.add(new AirConditioner(rand.nextInt(1000), "AirConditioner", false, LocalTime.now()));
                     return true;
                 } else {
                     System.out.println("You cannot add Air Conditioner in Bedroom");
                     return false;
                 }
             case 2:
-                Fan f = new Fan(rand.nextInt(1000), "Fan", false);
+                Fan f = new Fan(rand.nextInt(1000), "Fan", false,LocalTime.now());
                 if (f instanceof BedroomDevices) {
-                    bedRoomDevices.add(new Fan(rand.nextInt(1000), "Fan", false));
+                    bedRoomDevices.add(new Fan(rand.nextInt(1000), "Fan", false,LocalTime.now()));
                     return true;
                 } else {
                     System.out.println("You cannot add Fan in Bedroom");
                     return false;
                 }
             case 3:
-                Light l = new Light(rand.nextInt(1000), "Light", false);
+                Light l = new Light(rand.nextInt(1000), "Light", false,LocalTime.now());
                 if (l instanceof BedroomDevices) {
-                    bedRoomDevices.add(new Light(rand.nextInt(1000), "Light", false));
+                    bedRoomDevices.add(new Light(rand.nextInt(1000), "Light", false,LocalTime.now()));
                     return true;
                 } else {
                     System.out.println("You cannot add Light in Bedroom");
                     return false;
                 }
             case 4:
-                Television t = new Television(rand.nextInt(1000), "Television", false);
+                Television t = new Television(rand.nextInt(1000), "Television", false,LocalTime.now());
                 if (t instanceof BedroomDevices) {
-                    bedRoomDevices.add(new Television(rand.nextInt(1000), "Television", false));
+                    bedRoomDevices.add(new Television(rand.nextInt(1000), "Television", false,LocalTime.now()));
                     return true;
                 } else {
                     System.out.println("You cannot add Television in Bedroom");
                     return false;
                 }
             case 5:
-                Geyser g = new Geyser(rand.nextInt(1000), "Geyser", false);
+                Geyser g = new Geyser(rand.nextInt(1000), "Geyser", false,LocalTime.now());
                 if (g instanceof BedroomDevices) {
-                    bedRoomDevices.add(new Geyser(rand.nextInt(1000), "Geyser", false));
+                    bedRoomDevices.add(new Geyser(rand.nextInt(1000), "Geyser", false,LocalTime.now()));
                     return true;
                 } else {
                     System.out.println("You cannot add geyser in the Bedroom");
                     return false;
                 }
             case 6:
-                ExhaustFan e = new ExhaustFan(rand.nextInt(1000), "Exhaust Fan", false);
+                ExhaustFan e = new ExhaustFan(rand.nextInt(1000), "Exhaust Fan", false,LocalTime.now());
                 if (e instanceof BedroomDevices) {
-                    bedRoomDevices.add(new ExhaustFan(rand.nextInt(1000), "Exhaust Fan", false));
+                    bedRoomDevices.add(new ExhaustFan(rand.nextInt(1000), "Exhaust Fan", false,LocalTime.now()));
                     return true;
                 } else {
                     System.out.println("You cannot add ExhaustFan in the Bedroom");
@@ -333,6 +334,24 @@ public class Bedroom extends Rooms {
 
             if (((AirConditioner) airconditionerIndex.get(vchoice - 1)).changeMode())
                 System.out.println("Change mode successfully, of product " + airconditionerIndex.get(vchoice - 1).getProductId());
+        }
+    }
+
+    public void calculateTime()
+    {
+        if (bedRoomDevices.isEmpty())
+            System.out.println("There is no device present in the room");
+        else {
+            System.out.println("Devices");
+            System.out.println("+-----------------------------------------------------+");
+            for (int i = 0; i < bedRoomDevices.size(); i++) {
+                System.out.println("[ Device Name - "+bedRoomDevices.get(i).getDeviceName()+"    Product ID - "+bedRoomDevices.get(i).getProductId()+"       press-"+(i+1)+" ]");
+            }
+            System.out.println("+-----------------------------------------------------+");
+            System.out.println("Chose Device");
+            int dchoice = sc.nextInt();
+
+            bedRoomDevices.get(dchoice-1).calculateTime();
         }
     }
 }
